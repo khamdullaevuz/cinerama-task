@@ -79,3 +79,5 @@ php artisan serve
 username: admin
 password: password
 ```
+
+### [Api documentation](https://documenter.getpostman.com/view/19487478/2s93Jxt2j7)
