@@ -54,6 +54,12 @@ php artisan db:seed
 php artisan db:seed --class=UserSeeder
 ```
 
+### link storage
+
+```shell
+php artisan storage:link
+```
+
 ### run npm
 
 ```shell

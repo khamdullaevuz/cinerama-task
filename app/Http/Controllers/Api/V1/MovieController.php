@@ -15,7 +15,7 @@ class MovieController extends Controller
 
     public function index(Request $request)
     {
-        return $this->movieService->index($request);
+        return $this->movieService->index($request->toArray());
     }
 
     public function show($id)
