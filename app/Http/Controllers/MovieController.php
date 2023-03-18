@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MovieCreateRequest;
+use App\Models\Country;
+use App\Models\Genre;
 use App\Services\MovieService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -28,15 +31,19 @@ class MovieController extends Controller
      */
     public function create(): View
     {
-        return view('movies.create');
+        return view('movies.create')
+            ->with('genres', Genre::all())
+            ->with('countries', Country::all());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MovieCreateRequest $request): RedirectResponse
     {
-        //
+        $this->movieService->store($request->validated());
+
+        return redirect()->route('movies.index')->with('success', 'Movie created successfully.');
     }
 
     /**

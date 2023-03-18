@@ -10,11 +10,29 @@ use Illuminate\Http\Request;
 class MovieRepository implements MovieRepositoryInterface
 {
 
-    public function index(Request $request)
+    public function index(array $options)
     {
-        $movies = Movie::with('countries', 'genres')->paginate($request->get('per_page', 10));
+        $search = $options['search'] ?? null;
+        $searchBy = $options['search_by'] ?? 'slug';
+        $page = $options['page'] ?? 1;
+        $limit = $options['limit'] ?? 10;
+        $sort = $options['sort'] ?? 'id';
+        $order = $options['order'] ?? 'asc';
+        $filter = $options['filter'] ?? null;
 
-        return MovieResource::collection($movies);
+        $movies = Movie::query();
+
+        if ($search) {
+            $movies->where($searchBy, 'like', '%' . $search . '%');
+        }
+
+        if ($filter) {
+            $movies->where('genre_id', $filter);
+        }
+
+        $movies->orderBy($sort, $order);
+
+        return $movies->paginate($limit, ['*'], 'page', $page);
     }
 
     public function show($id)

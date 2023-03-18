@@ -14,7 +14,11 @@ class MovieService
 
     public function index(Request $request)
     {
-        return $this->movieRepository->index($request);
+        $options = $request->only(['per_page', 'page', 'sort_by', 'sort_order', 'search', 'search_by', 'filter', 'filter_by']);
+
+        $movies = $this->movieRepository->index($options);
+
+        return MovieResource::collection($movies);
     }
 
     public function show($id)

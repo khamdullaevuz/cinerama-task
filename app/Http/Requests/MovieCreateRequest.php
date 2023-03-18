@@ -23,7 +23,15 @@ class MovieCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'year' => 'required|string',
+            'genres' => 'required|array',
+            'genres.*' => 'required|integer|exists:genres,id',
+            'countries' => 'required|array',
+            'countries.*' => 'required|integer|exists:countries,id',
+            'is_free' => 'nullable',
         ];
     }
 }

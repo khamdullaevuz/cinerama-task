@@ -24,4 +24,9 @@ class MovieService
     {
         return $this->movieRepository->get($id);
     }
+
+    public function store(array $data): void
+    {
+        $this->movieRepository->store($data);
+    }
 }

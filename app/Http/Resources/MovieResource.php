@@ -20,6 +20,7 @@ class MovieResource extends JsonResource
         return [
             'id' => $this->id,
             'poster' => $this->when($is_single_item_request, $this->poster),
+            'slug' => $this->when($is_single_item_request, $this->slug),
             'title' => $this->title,
             'is_free' => (bool) $this->is_free,
             'year' => $this->year,

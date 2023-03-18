@@ -58,3 +58,25 @@
         </div>
     </div>
 @stop
+
+@section('scripts')
+    <script type="text/javascript">
+        $('.show_confirm').click(function(e) {
+            e.preventDefault();
+            let $form = $(this).closest('form');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to delete these records? This process cannot be undone!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Delete!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $form.submit();
+                }
+            })
+        });
+    </script>
+@endsection
