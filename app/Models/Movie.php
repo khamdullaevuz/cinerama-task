@@ -15,6 +15,11 @@ class Movie extends Model
       'title', 'slug', 'description', 'poster', 'year', 'is_free'
     ];
 
+    protected $casts = [
+      'is_free' => 'boolean',
+      'status' => 'boolean',
+    ];
+
     public function genres(): BelongsToMany
     {
         return $this->belongsToMany(Genre::class, 'movies_genres');
