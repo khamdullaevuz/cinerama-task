@@ -26,7 +26,7 @@ class MovieCreateRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'required|string',
             'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'year' => 'required|string',
+            'year' => 'required|integer',
             'genres' => 'required|array',
             'genres.*' => 'required|integer|exists:genres,id',
             'countries' => 'required|array',
