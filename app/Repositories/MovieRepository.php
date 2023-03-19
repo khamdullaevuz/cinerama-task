@@ -15,33 +15,9 @@ class MovieRepository implements MovieRepositoryInterface
         return Movie::orderByDesc('created_at')->paginate(10);
     }
 
-    public function store(array $data): void
+    public function store(array $data, array $genres, array $countries): void
     {
-        $title = $data['title'];
-        $slug = Str::slug($title);
-        $year = $data['year'];
-
-        if(!empty($data['is_free'])) {
-            $is_free = 1;
-        }else{
-            $is_free = 0;
-        }
-
-        $description = $data['description'];
-
-        $poster = $data['poster']->store('images', 'public');
-
-        $genres = $data['genres'];
-        $countries = $data['countries'];
-
-        $movie = Movie::create([
-            'title' => $title,
-            'poster' => $poster,
-            'slug' => $slug,
-            'year' => $year,
-            'is_free' => $is_free,
-            'description' => $description,
-        ]);
+        $movie = Movie::create($data);
 
         $movie->genres()->attach($genres);
         $movie->countries()->attach($countries);

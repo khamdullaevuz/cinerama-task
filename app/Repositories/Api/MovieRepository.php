@@ -27,7 +27,10 @@ class MovieRepository implements MovieRepositoryInterface
         }
 
         if ($filter) {
-            $movies->where('genre_id', $filter);
+            $start_year = $filter['start_year'];
+            $end_year = $filter['end_year'];
+
+            $movies->whereBetween('year', [$start_year, $end_year]);
         }
 
         $movies->orderBy($sort, $order);

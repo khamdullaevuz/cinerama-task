@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <img src="{{ $movie->poster }}" alt="{{$movie->title}}" class="card-img-top">
+                <img src="{{ $movie->poster_url }}" alt="{{$movie->title}}" class="card-img-top">
             </div>
         </div>
         <div class="col-md-6">
