@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces;
+namespace App\Repositories\Contract;
 interface CountryRepositoryInterface
 {
     public function all(array $options);

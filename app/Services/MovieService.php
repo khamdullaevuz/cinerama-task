@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Interfaces\MovieRepositoryInterface;
+use App\Repositories\Contract\MovieRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 

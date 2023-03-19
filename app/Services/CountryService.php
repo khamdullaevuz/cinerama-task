@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Interfaces\CountryRepositoryInterface;
+use App\Repositories\Contract\CountryRepositoryInterface;
 
 class CountryService
 {

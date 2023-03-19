@@ -3,8 +3,7 @@
 namespace App\Services\Api;
 
 use App\Http\Resources\MovieResource;
-use App\Interfaces\Api\MovieRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Repositories\Contract\Api\MovieRepositoryInterface;
 
 class MovieService
 {

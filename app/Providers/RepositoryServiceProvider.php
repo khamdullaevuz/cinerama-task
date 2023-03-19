@@ -2,14 +2,14 @@
 
 namespace App\Providers;
 
-use App\Interfaces\CountryRepositoryInterface;
-use App\Interfaces\GenreRepositoryInterface;
-use App\Interfaces\MovieRepositoryInterface;
-use App\Interfaces\Api\MovieRepositoryInterface as ApiMovieRepositoryInterface;
+use App\Repositories\Api\MovieRepository as ApiMovieRepository;
+use App\Repositories\Contract\Api\MovieRepositoryInterface as ApiMovieRepositoryInterface;
+use App\Repositories\Contract\CountryRepositoryInterface;
+use App\Repositories\Contract\GenreRepositoryInterface;
+use App\Repositories\Contract\MovieRepositoryInterface;
 use App\Repositories\CountryRepository;
 use App\Repositories\GenreRepository;
 use App\Repositories\MovieRepository;
-use App\Repositories\Api\MovieRepository as ApiMovieRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

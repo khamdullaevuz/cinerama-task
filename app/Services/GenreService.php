@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Interfaces\GenreRepositoryInterface;
+use App\Repositories\Contract\GenreRepositoryInterface;
 
 class GenreService
 {

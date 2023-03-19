@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces;
+namespace App\Repositories\Contract;
 interface GenreRepositoryInterface
 {
     public function all(array $options);

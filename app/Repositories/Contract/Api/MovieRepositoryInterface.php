@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Interfaces\Api;
-
-use App\Http\Resources\MovieResource;
-use Illuminate\Http\Request;
+namespace App\Repositories\Contract\Api;
 
 interface MovieRepositoryInterface
 {

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
+use App\Models\Genre;
+use App\Models\Movie;
 use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
@@ -13,6 +16,9 @@ class HomeController extends Controller
      */
     public function index(): Renderable
     {
-        return view('home');
+        return view('home')
+            ->with('movie_count', Movie::count())
+            ->with('country_count', Country::count())
+            ->with('genre_count', Genre::count());
     }
 }
