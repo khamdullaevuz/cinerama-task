@@ -79,4 +79,14 @@ username: admin
 password: password
 ```
 
+### admin panel
+```shell
+http://domain.uz
+```
+
+### api
+```shell
+http://domain.uz/api
+```
+
 ### [Api documentation](https://documenter.getpostman.com/view/19487478/2s93Jxt2j7)
