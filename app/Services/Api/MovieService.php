@@ -13,9 +13,7 @@ class MovieService
 
     public function index(array $options)
     {
-        $movies = $this->movieRepository->index($options);
-
-        return MovieResource::collection($movies);
+        return $this->movieRepository->index($options);
     }
 
     public function show($id)

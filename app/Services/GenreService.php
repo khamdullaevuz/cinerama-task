@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\GenreDTO;
 use App\Repositories\Contract\GenreRepositoryInterface;
 
 class GenreService
@@ -17,7 +18,8 @@ class GenreService
 
     public function store(array $validated): void
     {
-        $this->genreRepository->store($validated);
+        $genre = GenreDTO::toArray($validated);
+        $this->genreRepository->store($genre);
     }
 
     public function destroy(string $id): void

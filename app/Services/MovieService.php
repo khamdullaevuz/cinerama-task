@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\MovieDTO;
 use App\Repositories\Contract\MovieRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -30,31 +31,11 @@ class MovieService
 
     public function store(array $data): void
     {
-        $title = $data['title'];
-        $slug = Str::slug($title);
-        $year = $data['year'];
-
-        if(!empty($data['is_free'])) {
-            $is_free = 1;
-        }else{
-            $is_free = 0;
-        }
-
-        $description = $data['description'];
-
-        $poster = $data['poster']->store('images', 'public');
+        $movie = MovieDTO::toArray($data);
 
         $genres = $data['genres'];
         $countries = $data['countries'];
-        $data = [
-            'title' => $title,
-            'poster' => $poster,
-            'slug' => $slug,
-            'year' => $year,
-            'is_free' => $is_free,
-            'description' => $description,
-        ];
 
-        $this->movieRepository->store($data, $genres, $countries);
+        $this->movieRepository->store($movie, $genres, $countries);
     }
 }

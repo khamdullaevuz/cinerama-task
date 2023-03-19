@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\CountryDTO;
 use App\Repositories\Contract\CountryRepositoryInterface;
 
 class CountryService
@@ -17,7 +18,8 @@ class CountryService
 
     public function store(array $validated): void
     {
-        $this->countryRepository->store($validated);
+        $country = CountryDTO::toArray($validated);
+        $this->countryRepository->store($country);
     }
 
     public function destroy(string $id): void
