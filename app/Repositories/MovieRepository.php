@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\DTO\MovieDTO;
 use App\Models\Movie;
 use App\Repositories\Contract\MovieRepositoryInterface;
 
@@ -24,9 +25,16 @@ class MovieRepository implements MovieRepositoryInterface
         $movie->save();
     }
 
-    public function update(array $data, int $id): void
+    public function update(array $data, int $id, array $genres, array $countries): void
     {
-        // TODO: Implement update() method.
+        $movie = $this->model->find($id);
+        $movie->update($data);
+
+        $movie->genres()->detach();
+        $movie->countries()->detach();
+        $movie->genres()->attach($genres);
+        $movie->countries()->attach($countries);
+        $movie->save();
     }
 
     public function destroy(int $id): void

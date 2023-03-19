@@ -30,9 +30,4 @@ class CountryRepository implements CountryRepositoryInterface
     {
         $this->model->destroy($id);
     }
-
-    public function get(int $id)
-    {
-        return $this->model->find($id);
-    }
 }

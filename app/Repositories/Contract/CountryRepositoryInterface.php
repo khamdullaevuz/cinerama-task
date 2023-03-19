@@ -10,6 +10,4 @@ interface CountryRepositoryInterface
     public function update(array $data, int $id): void;
 
     public function destroy(int $id): void;
-
-    public function get(int $id);
 }

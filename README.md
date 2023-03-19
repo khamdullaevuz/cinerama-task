@@ -81,7 +81,7 @@ password: password
 
 ### admin panel
 ```shell
-http://domain.uz
+http://domain.uz/admin
 ```
 
 ### api

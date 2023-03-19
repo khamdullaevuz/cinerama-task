@@ -16,24 +16,24 @@ class CountryService
         return $this->countryRepository->all($options);
     }
 
+    public function find(string $id)
+    {
+        return $this->countryRepository->get($id);
+    }
+
     public function store(array $validated): void
     {
         $country = CountryDTO::toArray($validated);
         $this->countryRepository->store($country);
     }
 
-    public function destroy(string $id): void
-    {
-        $this->countryRepository->destroy($id);
-    }
-
-    public function update(mixed $validated, string $id): void
+    public function update(array $validated, string $id): void
     {
         $this->countryRepository->update($validated, $id);
     }
 
-    public function find(string $id)
+    public function destroy(string $id): void
     {
-        return $this->countryRepository->get($id);
+        $this->countryRepository->destroy($id);
     }
 }

@@ -18,12 +18,6 @@ class MovieService
         return $this->movieRepository->all($options);
     }
 
-    public function destroy(string $id): void
-    {
-        Storage::disk('public')->delete($this->get($id)->poster);
-        $this->movieRepository->destroy($id);
-    }
-
     public function get(string $id)
     {
         return $this->movieRepository->get($id);
@@ -37,5 +31,19 @@ class MovieService
         $countries = $data['countries'];
 
         $this->movieRepository->store($movie, $genres, $countries);
+    }
+
+    public function update(array $data, $id): void
+    {
+        $movie = MovieDTO::toArray($data);
+        $genres = $data['genres'];
+        $countries = $data['countries'];
+        $this->movieRepository->update($movie, $id, $genres, $countries);
+    }
+
+    public function destroy(string $id): void
+    {
+        Storage::disk('public')->delete($this->get($id)->poster);
+        $this->movieRepository->destroy($id);
     }
 }

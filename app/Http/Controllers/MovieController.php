@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MovieCreateRequest;
+use App\Http\Requests\MovieUpdateRequest;
 use App\Models\Country;
 use App\Models\Genre;
 use App\Services\MovieService;
@@ -32,8 +33,8 @@ class MovieController extends Controller
     public function create(): View
     {
         return view('movies.create')
-            ->with('genres', Genre::all())
-            ->with('countries', Country::all());
+            ->with('genres', Genre::get(['name', 'id']))
+            ->with('countries', Country::get(['name', 'id']));
     }
 
     /**
@@ -59,15 +60,20 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('movies.edit')
+            ->with('movie', $this->movieService->get($id))
+            ->with('genres', Genre::get(['name', 'id']))
+            ->with('countries', Country::get(['name', 'id']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MovieUpdateRequest $request, string $id)
     {
-        //
+        $this->movieService->update($request->validated(), $id);
+
+        return redirect()->route('movies.index')->with('success', 'Movie updated successfully.');
     }
 
     /**
