@@ -15,6 +15,7 @@ class MovieDTO
             'year' => $data['year'],
             'is_free' => !empty($data['is_free']),
             'description' => $data['description'],
+            'status' => !empty($data['status']),
         ];
 
         if(!empty($data['poster']))

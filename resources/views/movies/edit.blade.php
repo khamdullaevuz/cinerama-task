@@ -70,8 +70,15 @@
                 <div class="form-group">
                     <label for="is_free">Is free</label>
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="is_free" name="is_free" @if(old('is_free')) checked @endif>
+                        <input type="checkbox" class="custom-control-input" id="is_free" name="is_free" @if(old('is_free') ?? $movie->is_free) checked @endif>
                         <label class="custom-control-label" for="is_free"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="status" name="status" @if(old('status') ?? $movie->statusg) checked @endif>
+                        <label class="custom-control-label" for="status"></label>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Создать</button>

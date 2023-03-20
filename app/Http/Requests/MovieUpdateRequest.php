@@ -31,6 +31,7 @@ class MovieUpdateRequest extends FormRequest
             'countries' => 'required|array',
             'countries.*' => 'required|integer|exists:countries,id',
             'is_free' => 'nullable',
+            'status' => 'nullable'
         ];
     }
 }
