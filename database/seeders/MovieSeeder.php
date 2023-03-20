@@ -20,8 +20,8 @@ class MovieSeeder extends Seeder
         $movies = Movie::with('genres', 'countries')->get();
 
         foreach ($movies as $movie) {
-            $movie->genres()->attach(Genre::inRandomOrder()->limit(5)->get());
-            $movie->countries()->attach(Country::inRandomOrder()->limit(5)->get());
+            $movie->genres()->attach(Genre::inRandomOrder()->limit(3)->get());
+            $movie->countries()->attach(Country::inRandomOrder()->limit(2)->get());
             $movie->save();
         }
     }
