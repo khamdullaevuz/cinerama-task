@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function(){
+    return response()->json([
+        'message' => 'Cinerama API'
+    ]);
 });
 
 Route::controller(AuthController::class)->prefix('auth')->as('auth.')->group(function(){
