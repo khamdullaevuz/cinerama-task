@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function(){
     return response()->json([
-        'message' => 'Cinerama API'
+        'message' => 'Cinerama API',
+        'documentation' => 'https://documenter.getpostman.com/view/19487478/2s93Jxt2j7'
     ]);
 });
 
