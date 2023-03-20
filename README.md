@@ -80,13 +80,10 @@ password: password
 ```
 
 ### admin panel
-```shell
 http://127.0.0.1:8000/admin
-```
 
 ### api
-```shell
 http://127.0.0.1:8000/api
-```
+
 
 ### [Api documentation](https://documenter.getpostman.com/view/19487478/2s93Jxt2j7)
