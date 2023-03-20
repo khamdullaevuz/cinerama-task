@@ -2,7 +2,7 @@
 
 namespace App\QueryFilter;
 
-class QueryFilter
+abstract class QueryFilter
 {
     protected $builder;
     protected $request;
