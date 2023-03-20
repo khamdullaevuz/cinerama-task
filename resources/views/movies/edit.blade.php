@@ -77,7 +77,7 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="status" name="status" @if(old('status') ?? $movie->statusg) checked @endif>
+                        <input type="checkbox" class="custom-control-input" id="status" name="status" @if(old('status') ?? $movie->status) checked @endif>
                         <label class="custom-control-label" for="status"></label>
                     </div>
                 </div>
