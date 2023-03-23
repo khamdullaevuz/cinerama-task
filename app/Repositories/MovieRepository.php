@@ -30,10 +30,8 @@ class MovieRepository implements MovieRepositoryInterface
         $movie = $this->model->find($id);
         $movie->update($data);
 
-        $movie->genres()->detach();
-        $movie->countries()->detach();
-        $movie->genres()->attach($genres);
-        $movie->countries()->attach($countries);
+        $movie->genres()->sync($genres);
+        $movie->countries()->sync($countries);
         $movie->save();
     }
 
